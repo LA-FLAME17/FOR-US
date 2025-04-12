@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Us 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      scroll-behavior: smooth;
+      background: linear-gradient(to bottom right, #ffe4e1, #fff0f5);
+    }
+
+    header {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      color: white;
+    }
+
+    header h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
+
+    section {
+      padding: 80px 20px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s ease;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .button-container {
+      margin-top: 40px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1rem;
+      border: none;
+      background-color: #ff6f91;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      margin: 10px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff3e6c;
+    }
+
+    .response {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #d6336c;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>For My Love 💕</h1>
+    <p>This page is just for us, because you're my favorite person ever.</p>
+  </header>
+
+  <section id="sec1">
+    <h2>Memories Together</h2>
+    <p>From our first laugh to every late-night talk, you make everything better.</p>
+  </section>
+
+  <section id="sec2">
+    <h2>Why I Love You</h2>
+    <p>You're kind, smart, funny, and unbelievably beautiful. Inside and out.</p>
+  </section>
+
+  <section id="sec3">
+    <h2>Little Surprises 💝</h2>
+    <div class="button-container">
+      <button onclick="showResponse('You light up my life like nobody else ✨')">Click Me</button>
+      <button onclick="showResponse('Every day with you feels like a dream come true 🌙')">Another One</button>
+      <button onclick="showResponse('You are my sunshine on a cloudy day ☀️')">And Another</button>
+    </div>
+    <div class="response" id="responseText"></div>
+  </section>
+
+  <script>
+    function showResponse(message) {
+      const response = document.getElementById('responseText');
+      response.textContent = message;
+    }
+
+    function revealSections() {
+      const sections = document.querySelectorAll('section');
+      const triggerBottom = window.innerHeight * 0.8;
+
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealSections);
+    window.addEventListener('load', revealSections);
+  </script>
+</body>
+</html>
